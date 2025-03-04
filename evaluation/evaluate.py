@@ -104,7 +104,7 @@ args = options()
 def main():
     args = options()
     # device = "cuda" if torch.cuda.is_available() and not args.no_cuda else "cpu"
-    with open(f'/home/fangxu/persuasivetom/{args.dataset}.json', 'r', encoding='utf-8') as f:
+    with open(f'./data/{args.dataset}.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
     if "deepseek" in args.model:
       API_BASE="https://api.deepseek.com/v1"
