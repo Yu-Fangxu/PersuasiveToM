@@ -113,16 +113,10 @@ def main():
     else:
       API_BASE = "http://localhost:8000/v1"
       API_KEY = "token-abc123"
-    
-    # if "gpt" in args.model:
-    #   # openai.base_url = "https://free.v36.cm/v1/"
-    #   # openai.default_headers = {"x-foo": "true"}
-    #   API_BASE = "https://free.v36.cm/v1/"
-    #   API_KEY = "sk-d9ehcojpRYuyOQFn6d0fFa9bB640426eB639Dc82Df0677E6"
 
     if "gpt-4o" in args.model or "o1" in args.model:
       API_BASE = "https://api.vveai.com/v1/"
-      API_KEY = "sk-P5id2wByWpK3MlQuD502Ac747617445bAdB51f82E7960055"
+      API_KEY = ""
       openai.default_headers = {"x-foo": "true"}
     client = OpenAI(
       api_key=API_KEY,
@@ -136,17 +130,13 @@ def main():
     # if not os.path.exists(file_path):
     with open(file_path, mode='w', newline='', encoding='utf-8') as file:
       writer = csv.writer(file)
-      # 写入表头
       writer.writerow(['dialogue_id', 'labels', 'predictions'])
     answers = []
     correct = 0
     incorrect = 0
-    if "gpt" in args.model:
-      quotas = len(data) // 4
-    else:
-      quotas = 3000
 
-    for problem in tqdm(data[:quotas]):
+
+    for problem in tqdm(data):
       intent = evaluate(args, client, problem)
       dialogue_id = problem['dialogue_id']
       answers.append([dialogue_id, problem['answerKey'], intent])
@@ -157,7 +147,6 @@ def main():
       print(f"Accuracy: {correct / (correct + incorrect)}")
     with open(file_path, mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        # 写入数据
         writer.writerows(answers)
 
 if __name__ == "__main__":
