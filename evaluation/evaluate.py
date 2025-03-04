@@ -11,11 +11,7 @@ import os
 letters = ["A", "B", "C", "D", "E", "F"]
 
 def evaluate(args, client, problem):
-
-  
-  
   if args.cot == True:
-    # system_prompt = f"Here is a persuasive dialogue. There are two agents, the persuader and the persuadee. The persuader is trying to persuade the persuadee to do something. Think step by step and end with the following question by the following format: The answer is \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"."
     system_prompt = """Here is a persuasive dialogue. There are two agents, the persuader and the persuadee. The persuader is trying to persuade the persuadee to do something. Think step by step to answer the question."""
   else:
     system_prompt = f"Here is a persuasive dialogue. There are two agents, the persuader and the persuadee. The persuader is trying to persuade the persuadee to do something. Please answer the following questions using \"A\", \"B\", \"C\", \"D\", \"E\", \"F\" without any explanation."
@@ -23,10 +19,6 @@ def evaluate(args, client, problem):
   question = problem['question']
   choices = problem['choices']
   answerKey = problem['answerKey']
-  shot = """\n
-  Ending with "The answer is \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"." 
-  For example, if the most likely answer option is 'A. considering', then end your response with 'The answer is A'. 
-"""
   if args.cot == True:
     shot = """\n
     Ending with "The answer is \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"." 
