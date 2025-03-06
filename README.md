@@ -25,13 +25,10 @@ You could change the model path for evaluating different LLMs
 
 <br> **If you find our repository helpful to your research, please consider citing:** <br>
 ```
-@misc{yu2025persuasivetombenchmarkevaluatingmachine,
-      title={PersuasiveToM: A Benchmark for Evaluating Machine Theory of Mind in Persuasive Dialogues}, 
-      author={Fangxu Yu and Lai Jiang and Shenyi Huang and Zhen Wu and Xinyu Dai},
-      year={2025},
-      eprint={2502.21017},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.21017}, 
+@article{yu2025persuasivetom,
+  title={PersuasiveToM: A Benchmark for Evaluating Machine Theory of Mind in Persuasive Dialogues},
+  author={Yu, Fangxu and Jiang, Lai and Huang, Shenyi and Wu, Zhen and Dai, Xinyu},
+  journal={arXiv preprint arXiv:2502.21017},
+  year={2025}
 }
 ```
