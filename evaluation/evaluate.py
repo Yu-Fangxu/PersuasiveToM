@@ -100,7 +100,7 @@ def main():
         data = json.load(f)
     if "deepseek" in args.model:
       API_BASE="https://api.deepseek.com/v1"
-      API_KEY="sk-169c9341b3b948f987ef8b9a6d5fa3b0"
+      API_KEY=""
 
     else:
       API_BASE = "http://localhost:8000/v1"
